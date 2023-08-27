@@ -104,11 +104,17 @@
     </div>
     <div style="display: none" id="myDiv" class="animate-bottom">
       <div class="container text-center">
-        <img id="pictureUrl" class="img-circle" alt="Cinque Terre" width="50" height="50"> 
-          <p id="userId"></p>
-          <center><p id="displayName"></p></center>
-          <p id="statusMessage"></p>
-          <p id="getDecodedIDToken"></p>
+        <img
+          id="pictureUrl"
+          class="img-circle"
+          alt="Cinque Terre"
+          width="50"
+          height="50"
+        />
+        <p id="userId"></p>
+        <center><p id="displayName"></p></center>
+        <p id="statusMessage"></p>
+        <p id="getDecodedIDToken"></p>
         <h2 class="mt-3 text-white">❤️ สร้าง Flex Message ❤️</h2>
         <button class="btn btn-success mb-3 text-white" onclick="goSimulator()">
           ไปที่ Flex Simulator
@@ -120,7 +126,7 @@
         <textarea
           class="form-control"
           id="myTextarea"
-          rows="20"
+          rows="15"
           cols="25"
         ></textarea>
 
@@ -154,15 +160,20 @@
         var message = document.getElementById("myTextarea").value;
         document.getElementById("demo").innerHTML = message;
 
-         liff.getProfile().then(profile => {
-                document.getElementById("pictureUrl").src = profile.pictureUrl;  // %u0E41%u0E2A%u0E14%u0E07%u0E23%u0E39%u0E1B Profile %u0E17%u0E35%u0E48%u0E14%u0E36%u0E07%u0E21%u0E32
-                document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId; 
-                document.getElementById("displayName").innerHTML = '<b>สวัสดี:</b> ' + profile.displayName; // %u0E41%u0E2A%u0E14%u0E07%u0E0A%u0E37%u0E48%u0E2D Line %u0E02%u0E2D%u0E07%u0E1C%u0E39%u0E49%u0E43%u0E0A%u0E49
-                document.getElementById("statusMessage").innerHTML = '<b>StatusMessage:</b> ' + profile.statusMessage;  // %u0E41%u0E2A%u0E14%u0E07%u0E2A%u0E16%u0E32%u0E19%u0E30%u0E02%u0E2D%u0E07%u0E1C%u0E39%u0E49%u0E43%u0E0A%u0E49 Line
-                //document.getElementById("getDecodedIDToken").innerHTML = '<b>Email:</b> ' + liff.getDecodedIDToken().email;
-              }).catch(err => console.error(err));
-            }
-        
+        liff
+          .getProfile()
+          .then((profile) => {
+            document.getElementById("pictureUrl").src = profile.pictureUrl; // %u0E41%u0E2A%u0E14%u0E07%u0E23%u0E39%u0E1B Profile %u0E17%u0E35%u0E48%u0E14%u0E36%u0E07%u0E21%u0E32
+            document.getElementById("userId").innerHTML =
+              "<b>UserId:</b> " + profile.userId;
+            document.getElementById("displayName").innerHTML =
+              "<b>สวัสดี:</b> " + profile.displayName; // %u0E41%u0E2A%u0E14%u0E07%u0E0A%u0E37%u0E48%u0E2D Line %u0E02%u0E2D%u0E07%u0E1C%u0E39%u0E49%u0E43%u0E0A%u0E49
+            document.getElementById("statusMessage").innerHTML =
+              "<b>StatusMessage:</b> " + profile.statusMessage; // %u0E41%u0E2A%u0E14%u0E07%u0E2A%u0E16%u0E32%u0E19%u0E30%u0E02%u0E2D%u0E07%u0E1C%u0E39%u0E49%u0E43%u0E0A%u0E49 Line
+            //document.getElementById("getDecodedIDToken").innerHTML = '<b>Email:</b> ' + liff.getDecodedIDToken().email;
+          })
+          .catch((err) => console.error(err));
+
         liff.init({ liffId: "2000534426-2E3BdkoV" });
         // liff.id equals to liffId
         liff.ready.then(() => {
@@ -188,7 +199,8 @@
               console.log("error", err);
             });
         });
-      } //จบฟังก์ชั่น
+      }
+      //จบฟังก์ชั่น
       function goSimulator() {
         liff.openWindow({
           url: "https://developers.line.biz/flex-simulator/",
