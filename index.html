@@ -187,7 +187,7 @@
       function myFunction() {
         var altText = document.getElementById("alt").value;
         var message = document.getElementById("myTextarea").value;
-        document.getElementById("demo").innerHTML = message;
+        // document.getElementById("demo").innerHTML = message;
         
         liff.init({ liffId: "2000534426-2E3BdkoV" });
         // liff.id equals to liffId
@@ -208,8 +208,9 @@
                 showConfirmButton: false,
                 timer: 1500,
               });
-              liff.init({ liffId: "2000534426-2E3BdkoV" });
-              hideLoader()
+              document.getElementById("alt").innerHTML = ""; 
+              document.getElementById("myTextarea").innerHTML = "";
+        
               console.log("message sent");
             })
             .catch((err) => {
