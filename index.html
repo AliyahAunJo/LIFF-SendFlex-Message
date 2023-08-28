@@ -12,13 +12,18 @@
   <script type="text/javascript" src="flex2html.min.js"></script>
 
   <style>
-     body {
+    body {
+      box-sizing: border-box;
+      border: 1px solid;
+      margin: 30px 30px;
+      box-decoration-break: unset;
       display: flex;
       align-items: center;
       justify-content: center;
       background-color: black;
+      overflow: hidden;
     }
-    
+
     input {
       width: 30px;
     }
@@ -60,7 +65,7 @@
 
     <textarea class="form-control" id="flexjson" rows="20px" cols="30px" onchange="showFlex()"></textarea>
     <div class="chatbox mt-3 mb-3">
-      <div class="form-control" id="flex1"></div>
+      <div id="flex1"></div>
     </div>
     <p class="mb-3 mt-3 text-white">กดปุ่มเพื่อส่ง Flex ไปหาเพื่อนของคุณ</p>
 
