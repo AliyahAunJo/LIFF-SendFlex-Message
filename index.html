@@ -8,6 +8,9 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
+  <!-- <link rel="stylesheet" href="flex2html.css" /> -->
+  <script type="text/javascript" src="flex2html.min.js"></script>
+
   <style>
     body {
       box-sizing: border-box;
@@ -33,106 +36,45 @@
     #label2 {
       margin-left: -190px;
     }
-
-    #loader {
-      width: 10em;
-      height: 10em;
-      font-size: 25px;
-      box-sizing: border-box;
-      border-top: 0.3em solid hotpink;
-      border-radius: 50%;
-      position: relative;
-      animation: rotating 2s ease-in-out infinite;
-      --direction: 1;
-    }
-
-    #loader::before,
-    #loader::after {
-      content: "";
-      position: absolute;
-      width: inherit;
-      height: inherit;
-      border-radius: 50%;
-      box-sizing: border-box;
-      top: -0.2em;
-    }
-
-    #loader::before {
-      border-top: 0.3em solid dodgerblue;
-      transform: rotate(120deg);
-    }
-
-    #loader::after {
-      border-top: 0.3em solid gold;
-      transform: rotate(240deg);
-    }
-
-    #loader span {
-      position: absolute;
-      color: white;
-      width: inherit;
-      height: inherit;
-      text-align: center;
-      line-height: 10em;
-      font-family: sans-serif;
-      animation: rotating 2s linear infinite;
-      --direction: -1;
-    }
-
-    @keyframes rotating {
-      50% {
-        transform: rotate(calc(180deg * var(--direction)));
-      }
-
-      100% {
-        transform: rotate(calc(360deg * var(--direction)));
-      }
-    }
   </style>
 
-  <link rel="stylesheet" href="flex2html.css" />
-  <script type="text/javascript" src="flex2html.min.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 </head>
 
-<body onload="hideLoader()">
-  <div id="loader">
-    <span>Loading...</span>
-  </div>
-  <div style="display: none" id="myDiv" class="animate-bottom">
-    <div class="container text-center">
-      <img id="pictureUrl" class="img-circle mb-2 mt-3" alt="Cinque Terre" width="50" height="50" />
-      <p class="text-white mb-2" id="userId"></p>
-      <center>
-        <p class="text-white mb-2" id="displayName"></p>
-      </center>
-      <p class="text-white mb-2" id="statusMessage"></p>
-      <p class="text-white mb-2" id="getDecodedIDToken"></p>
-      <h2 class="mt-3 text-white">❤️ สร้าง Flex Message ❤️</h2>
-      <button class="btn btn-success mb-3 text-white" onclick="goSimulator()">
-        ไปที่ Flex Simulator
-      </button>
-      <br />
-      <label id="label1" class="text-white mb-3" for="">Alt text</label>
-      <input class="form-control mb-3" type="text" name="" id="alt" />
-      <label id="label2" class="text-white mb-3" for=""> Flex Message</label>
-      <textarea id="flexjson" rows="20px" cols="57px" onchange="showFlex()"></textarea>
+<body">
+  <div class="container text-center">
+    <img id="pictureUrl" class="img-circle mb-2 mt-3" alt="Cinque Terre" width="50" height="50" />
+    <p class="text-white mb-2" id="userId"></p>
+    <center>
+      <p class="text-white mb-2" id="displayName"></p>
+    </center>
+    <p class="text-white mb-2" id="statusMessage"></p>
+    <p class="text-white mb-2" id="getDecodedIDToken"></p>
+    <h2 class="mt-3 text-white">❤️ สร้าง Flex Message ❤️</h2>
+    <button class="btn btn-success mb-3 text-white" onclick="goSimulator()">
+      ไปที่ Flex Simulator
+    </button>
+    <br />
+    <label id="label1" class="text-white mb-3" for="">Alt text</label>
+    <input class="form-control mb-3" type="text" name="" id="alt" />
+    <label id="label2" class="text-white mb-3" for=""> Flex Message</label>
 
-      <p class="mt-3 text-white">กดปุ่มเพื่อส่ง Flex ไปหาเพื่อนของคุณ</p>
-
-      <button class="btn btn-danger" type="button" onclick="myFunction()">
-        ส่ง Flex ทันที
-      </button>
-
-      <div class="chatbox">
-        <div id="flex1"></div>
-      </div>
-
-      <p class="mt-5 text-white" id="demo"></p>
-      <hr class="text-white" />
-      <p class="text-white">❤️ พัฒนาโดย ครูอั๋นใจดี ❤️</p>
+    <div class="chatbox">
+      <div id="flex1"></div>
     </div>
+    <textarea id="flexjson" rows="20px" cols="57px" onchange="showFlex()"></textarea>
+
+    <p class="mt-3 text-white">กดปุ่มเพื่อส่ง Flex ไปหาเพื่อนของคุณ</p>
+
+    <button class="btn btn-danger" type="button" onclick="myFunction()">
+      ส่ง Flex ทันที
+    </button>
+
+
+
+    <p class="mt-5 text-white" id="demo"></p>
+    <hr class="text-white" />
+    <p class="text-white">❤️ พัฒนาโดย ครูอั๋นใจดี ❤️</p>
+  </div>
   </div>
 
 
@@ -156,14 +98,6 @@
         console.log(err)
         document.getElementById('flex1').innerHTML = "";
       }
-    }
-
-    function hideLoader() {
-      setTimeout(showPage, 3000);
-    }
-    function showPage() {
-      document.getElementById("loader").style.display = "none";
-      document.getElementById("myDiv").style.display = "block";
     }
 
     function runApp() {
@@ -250,7 +184,7 @@
 
   </script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script> -->
-</body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 
 </html>
