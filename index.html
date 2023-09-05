@@ -186,7 +186,14 @@
         }
         async function scanQrCode() {
             const result = await liff.scanCodeV2()
-            document.getElementById("showtext").append(result.value)
+            document.getElementById("textBox2").append(result.value)
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Scan เรียบร้อย !",
+                showConfirmButton: false,
+                timer: 1500,
+            });
         }
 
         function showFlex() {
