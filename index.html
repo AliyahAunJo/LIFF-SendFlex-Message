@@ -44,6 +44,15 @@
             display: contents;
         }
 
+        #showtext {
+              white-space: pre-wrap;
+              white-space: -moz-pre-wrap;
+              white-space: -pre-wrap;
+              white-space: -o-pre-wrap;
+              word-wrap: break-word;
+              color: rgb(2, 91, 35);
+        }
+
         .chatbox {
             width: auto;
             border: 1px;
@@ -216,7 +225,7 @@
 
         function showText() {
             var text = document.getElementById("textBox2").value;
-            document.getElementById('showtext').innerHTML = text;
+            document.getElementById('showtext').innerText = text;
         }
 
 
